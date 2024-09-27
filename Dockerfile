@@ -1,17 +1,17 @@
-# Base the container on the Python 3.11 image
+# Base image
 FROM mcr.microsoft.com/vscode/devcontainers/python:3.11
 
-# Install necessary development tools
+# Install tools
 RUN apt-get update && apt-get install -y \
     build-essential \
     git \
     curl
 
-# Copy the setup script into the container
-COPY setup.sh /usr/local/bin/setup.sh
+# Copy setup script to /opt directory
+COPY setup.sh /opt/devcontainer/setup.sh
 
 # Make the script executable
-RUN chmod +x /usr/local/bin/setup.sh
+RUN chmod +x /opt/devcontainer/setup.sh
 
-# Run the setup script during the container creation
-RUN /bin/bash /usr/local/bin/setup.sh
+# Run the setup script during container creation
+RUN /bin/bash /opt/devcontainer/setup.sh
