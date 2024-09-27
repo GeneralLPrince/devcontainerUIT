@@ -12,8 +12,5 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory
 WORKDIR /workspaces/devcontainerUIT
 
-# Ensure the setup script has executable permissions
-RUN chmod +x /workspaces/devcontainerUIT/.devcontainer/setup.sh
-
 # Optionally, run the setup script
 CMD ["/workspaces/devcontainerUIT/.devcontainer/setup.sh"]
