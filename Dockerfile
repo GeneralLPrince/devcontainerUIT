@@ -13,5 +13,5 @@ COPY setup.sh /usr/local/bin/setup.sh
 # Make the script executable
 RUN chmod +x /usr/local/bin/setup.sh
 
-# Run the setup script
+# Run the setup script during the container creation
 RUN /bin/bash /usr/local/bin/setup.sh
