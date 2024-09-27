@@ -15,5 +15,5 @@
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
-    "postCreateCommand": "bash /opt/devcontainerUIT/setup.sh | tee /tmp/setup.log"
+    "postCreateCommand": "bash /workspaces/devcontainerUIT/setup.sh | tee /tmp/setup.log"
 }
