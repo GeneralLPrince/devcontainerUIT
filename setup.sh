@@ -31,10 +31,10 @@ if ! grep -Fxq "$ALIAS" ~/.bashrc; then
     echo "$ALIAS" >> ~/.bashrc
 fi
 
-# Source .bashrc in non-interactive shell
-if [ "$-" != "${-#*i}" ]; then
-    # Interactive shell
+# Source .bashrc to apply the alias in the current terminal session
+if [ -f ~/.bashrc ]; then
     source ~/.bashrc
-else
-    echo "Non-interactive shell, setting up alias for future sessions"
 fi
+
+# Restart the shell to apply alias without manual intervention
+exec bash
