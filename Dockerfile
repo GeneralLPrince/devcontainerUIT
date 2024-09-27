@@ -9,14 +9,8 @@ RUN apt-get update && apt-get install -y \
     git && \
     rm -rf /var/lib/apt/lists/*
 
-# Set the working directory
+# Set the working directory to the repository root
 WORKDIR /workspaces/devcontainerUIT
 
-# Create the target directory for setup scripts
-RUN mkdir -p /opt/devcontainerUIT
-
-# Copy setup script to /opt/devcontainerUIT directory
-COPY setup.sh /opt/devcontainerUIT/setup.sh
-
-# Make the script executable
-RUN chmod +x /opt/devcontainerUIT/setup.sh
+# Ensure the script has executable permissions
+RUN chmod +x /workspaces/devcontainerUIT/setup.sh
