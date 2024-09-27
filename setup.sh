@@ -38,7 +38,7 @@ install_git
 
 # Clone the checkuit repository if it doesn't exist
 echo "Cloning checkuit repository..."
-TARGET_DIR="/workspaces/checkuit"
+TARGET_DIR="/workspaces/checkuit/"
 
 if [ ! -d "$TARGET_DIR" ]; then
     git clone https://github.com/generallprince/checkuit.git "$TARGET_DIR"
