@@ -12,6 +12,3 @@ COPY setup.sh /opt/devcontainer/setup.sh
 
 # Make the script executable
 RUN chmod +x /opt/devcontainer/setup.sh
-
-# Run the setup script during container creation
-RUN /bin/bash /opt/devcontainer/setup.sh
