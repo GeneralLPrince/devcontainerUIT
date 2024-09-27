@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
     git && \
     rm -rf /var/lib/apt/lists/*
 
+# Set the working directory
+WORKDIR /workspaces/devcontainerUIT
+
 # Copy setup script to /opt/devcontainer directory
 COPY setup.sh /opt/devcontainer/setup.sh
 
