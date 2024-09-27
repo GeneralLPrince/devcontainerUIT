@@ -1,5 +1,5 @@
 {
-    "name": "python-c-dev",
+    "name": "custom-devcontainer",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "."
