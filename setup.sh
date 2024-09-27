@@ -5,6 +5,10 @@ echo "============================="
 echo "Starting setup.sh script..."
 echo "============================="
 
+# Display current user and home directory for debugging
+echo "Running as user: $(whoami)"
+echo "Home directory: $HOME"
+
 # Function to install Python3 if not already installed
 install_python() {
     if ! command -v python3 &> /dev/null; then
@@ -48,29 +52,13 @@ fi
 # Define the alias
 ALIAS="alias checkuit='python3 $TARGET_DIR/checkuit.py'"
 
-# Ensure .bash_aliases is sourced in .bashrc
-echo "Ensuring .bash_aliases is sourced in .bashrc..."
-if ! grep -Fxq 'if [ -f ~/.bash_aliases ]; then' "$HOME/.bashrc"; then
-    echo 'if [ -f ~/.bash_aliases ]; then' >> "$HOME/.bashrc"
-    echo '    . ~/.bash_aliases' >> "$HOME/.bashrc"
-    echo 'fi' >> "$HOME/.bashrc"
-    echo ".bash_aliases sourcing added to .bashrc."
+# Add the alias directly to .bashrc
+echo "Adding alias directly to .bashrc..."
+if ! grep -Fxq "$ALIAS" "$HOME/.bashrc"; then
+    echo "$ALIAS" >> "$HOME/.bashrc"
+    echo "Alias 'checkuit' added to .bashrc."
 else
-    echo ".bash_aliases is already sourced in .bashrc."
-fi
-
-# Add the alias to .bash_aliases
-echo "Adding alias to .bash_aliases..."
-if [ ! -f "$HOME/.bash_aliases" ]; then
-    touch "$HOME/.bash_aliases"
-    echo ".bash_aliases file created."
-fi
-
-if ! grep -Fxq "$ALIAS" "$HOME/.bash_aliases"; then
-    echo "$ALIAS" >> "$HOME/.bash_aliases"
-    echo "Alias 'checkuit' added to .bash_aliases."
-else
-    echo "Alias 'checkuit' already exists in .bash_aliases."
+    echo "Alias 'checkuit' already exists in .bashrc."
 fi
 
 echo "============================="
