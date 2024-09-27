@@ -12,5 +12,11 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory
 WORKDIR /workspaces/devcontainerUIT
 
+# Create the target directory for setup scripts
+RUN mkdir -p /opt/devcontainerUIT
+
+# Copy setup script to /opt/devcontainerUIT directory
+COPY setup.sh /opt/devcontainerUIT/setup.sh
+
 # Make the script executable
-RUN chmod +x setup.sh
+RUN chmod +x /opt/devcontainerUIT/setup.sh
