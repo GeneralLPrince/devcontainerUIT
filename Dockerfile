@@ -1,7 +1,7 @@
 # Base image
 FROM mcr.microsoft.com/vscode/devcontainers/python:3.11
 
-# Install essential tools
+# Install essential tools in one RUN command to optimize caching
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
