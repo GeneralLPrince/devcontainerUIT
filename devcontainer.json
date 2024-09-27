@@ -14,5 +14,6 @@
     },
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
-    }
+    },
+    "postCreateCommand": "bash /opt/devcontainer/setup.sh"
 }
