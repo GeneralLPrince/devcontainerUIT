@@ -26,7 +26,7 @@ if [ ! -d "$TARGET_DIR" ]; then
 fi
 
 # Add alias to .bash_aliases if not already present
-ALIAS="alias checkuit='python3 $TARGET_DIR/checkuit.py'"
+alias checkuit='python3 /workspaces/checkuit/checkuit.py'
 
 if ! grep -Fxq "$ALIAS" ~/.bash_aliases; then
     echo "$ALIAS" >> ~/.bash_aliases
