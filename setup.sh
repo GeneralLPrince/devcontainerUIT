@@ -25,13 +25,19 @@ if [ ! -d "$TARGET_DIR" ]; then
     git clone https://github.com/generallprince/checkuit.git "$TARGET_DIR"
 fi
 
-# Add alias to .bashrc if not already present
+# Add alias to .bash_aliases if not already present
 ALIAS="alias checkuit='python3 $TARGET_DIR/checkuit.py'"
 
-if ! grep -Fxq "$ALIAS" ~/.bashrc; then
-    echo "$ALIAS" >> ~/.bashrc
-    echo "Alias added to .bashrc"
+if ! grep -Fxq "$ALIAS" ~/.bash_aliases; then
+    echo "$ALIAS" >> ~/.bash_aliases
+    echo "Alias added to .bash_aliases"
 fi
 
-# Source .bashrc to apply the alias in the current session
-source ~/.bashrc
+# Source both .bashrc and .bash_aliases
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
