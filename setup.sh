@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Install Python and Git
+# Update package lists and install Python and Git
 install_python() {
     if ! command -v python3 &> /dev/null; then
-        sudo apt-get update
-        sudo apt-get install python3 -y
+        apt-get update
+        apt-get install python3 -y
     fi
 }
 
 install_git() {
     if ! command -v git &> /dev/null; then
-        sudo apt-get update
-        sudo apt-get install git -y
+        apt-get update
+        apt-get install git -y
     fi
 }
 
@@ -20,21 +20,18 @@ install_git
 
 # Clone checkuit repo if not already cloned
 TARGET_DIR="/workspaces/checkuit"
+
 if [ ! -d "$TARGET_DIR" ]; then
     git clone https://github.com/generallprince/checkuit.git "$TARGET_DIR"
 fi
 
-# Add alias to .bashrc if not already present
+# Define the alias
 ALIAS="alias checkuit='python3 $TARGET_DIR/checkuit.py'"
 
-if ! grep -Fxq "$ALIAS" ~/.bashrc; then
-    echo "$ALIAS" >> ~/.bashrc
+# Add alias to .bash_aliases for the 'codespace' user
+sudo -u codespace bash -c "
+if ! grep -Fxq '$ALIAS' ~/.bash_aliases; then
+    echo \"$ALIAS\" >> ~/.bash_aliases
+    echo 'Alias added to .bash_aliases'
 fi
-
-# Source .bashrc to apply the alias in the current terminal session
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
-
-# Restart the shell to apply alias without manual intervention
-exec bash
+"
