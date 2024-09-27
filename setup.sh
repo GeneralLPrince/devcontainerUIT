@@ -60,4 +60,7 @@ else
     echo "Alias 'checkuit' already exists in .bash_aliases."
 fi
 
-echo "Setup completed successfully. Please restart your shell or run 'source ~/.bashrc' to apply changes."
+# Source .bashrc to make the alias available in the current script's shell
+source "$HOME/.bashrc"
+
+echo "Setup completed successfully. Please restart your terminal or run 'source ~/.bashrc' to apply changes."
