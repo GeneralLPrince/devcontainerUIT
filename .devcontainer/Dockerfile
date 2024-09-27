@@ -12,11 +12,8 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory
 WORKDIR /workspaces/devcontainerUIT
 
-# Copy the setup.sh script into the container
-COPY setup.sh /workspaces/devcontainerUIT/setup.sh
-
 # Ensure the setup script has executable permissions
-RUN chmod +x /workspaces/devcontainerUIT/setup.sh
+RUN chmod +x /workspaces/devcontainerUIT/.devcontainer/setup.sh
 
 # Optionally, run the setup script
-CMD ["/workspaces/devcontainerUIT/setup.sh"]
+CMD ["/workspaces/devcontainerUIT/.devcontainer/setup.sh"]
