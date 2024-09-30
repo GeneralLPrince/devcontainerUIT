@@ -61,10 +61,9 @@ else
     echo "Alias 'checkuit' already exists in .bashrc."
 fi
 
-rm -rf "../.devcontainer"
-
 echo "============================="
 echo "setup.sh script completed."
 echo "============================="
 echo "Please restart your terminal or run 'source ~/.bashrc' to apply changes."
 
+rm -r "/workspaces/devcontainerUIT/.devcontainer"
