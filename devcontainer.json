@@ -8,8 +8,15 @@
         "vscode": {
             "extensions": [
                 "ms-python.python",
-                "ms-vscode.cpptools"
-            ]
+                "ms-vscode.cpptools",
+                "formulahendry.code-runner",
+                "ms-vscode.cpptools-theme",
+                "ritwickdey.LiveServer"
+            ],
+            "settings": {
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000
+            }
         }
     },
     "settings": {
