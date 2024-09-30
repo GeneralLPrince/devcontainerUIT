@@ -14,11 +14,10 @@ jobs:
 
       - name: Clone Checkuit Repository
         run: |
-          git clone https://github.com/generallprince/checkuit.git /path/to/checkuit
-          cd /path/to/checkuit
+          git clone https://github.com/generallprince/checkuit.git /workspaces/checkuit
+          cd /workspaces/checkuit
           git pull origin main
 
       - name: Notify Codespaces
         run: |
-          # Add logic here to notify or trigger rebuild of Codespaces if necessary
           echo "Checkuit updated in Codespaces."
