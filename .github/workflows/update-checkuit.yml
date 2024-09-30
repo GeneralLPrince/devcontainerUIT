@@ -1,0 +1,24 @@
+name: Update Checkuit in Codespaces
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_checkuit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Dockerfile Repository
+        uses: actions/checkout@v2
+
+      - name: Clone Checkuit Repository
+        run: |
+          git clone https://github.com/generallprince/checkuit.git /path/to/checkuit
+          cd /path/to/checkuit
+          git pull origin main
+
+      - name: Notify Codespaces
+        run: |
+          # Add logic here to notify or trigger rebuild of Codespaces if necessary
+          echo "Checkuit updated in Codespaces."
