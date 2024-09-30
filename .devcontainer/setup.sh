@@ -61,7 +61,19 @@ else
     echo "Alias 'checkuit' already exists in .bashrc."
 fi
 
+# Delete the .devcontainer folder
+DEV_CONTAINER_DIR="$HOME/.devcontainer"
+
+if [ -d "$DEV_CONTAINER_DIR" ]; then
+    echo "Deleting .devcontainer directory..."
+    rm -rf "$DEV_CONTAINER_DIR"
+    echo ".devcontainer directory deleted."
+else
+    echo ".devcontainer directory does not exist."
+fi
+
 echo "============================="
 echo "setup.sh script completed."
 echo "============================="
 echo "Please restart your terminal or run 'source ~/.bashrc' to apply changes."
+
