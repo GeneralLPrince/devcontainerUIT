@@ -9,14 +9,9 @@ jobs:
   update_checkuit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Dockerfile Repository
-        uses: actions/checkout@v2
-
       - name: Clone Checkuit Repository
         run: |
-          sudo git clone https://github.com/generallprince/checkuit.git /workspaces/checkuit
-          cd /workspaces/checkuit
-          git pull origin main
+          git clone https://github.com/generallprince/checkuit.git $GITHUB_WORKSPACE/checkuit
 
       - name: Notify Codespaces
         run: |
