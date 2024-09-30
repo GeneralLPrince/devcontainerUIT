@@ -22,5 +22,5 @@
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
-    "postCreateCommand": "bash /workspaces/devcontainerUIT/.devcontainer/setup.sh | tee /tmp/setup.log"
+    "postCreateCommand": "pip install requests && bash /workspaces/devcontainerUIT/.devcontainer/setup.sh | tee /tmp/setup.log"
 }
