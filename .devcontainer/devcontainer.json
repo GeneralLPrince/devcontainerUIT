@@ -16,12 +16,7 @@
             "settings": {
                 "files.autoSave": "afterDelay",
                 "files.autoSaveDelay": 1000,
-                "code-runner.runInTerminal": true,
-                "diffEditor.showEmptyDecorations": false,
-                "workbench.editor.decorations.colors": false,
-                "workbench.editor.decorations.badges": false,
-                "explorer.decorations.badges": false,
-                "explorer.decorations.colors": false
+                "code-runner.runInTerminal": true
             }
         }
     }
