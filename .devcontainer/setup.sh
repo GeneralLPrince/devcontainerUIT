@@ -61,21 +61,9 @@ else
     echo "Alias 'checkuit' already exists in .bashrc."
 fi
 
-# Configure Git user (if needed)
-echo "Configuring Git user..."
-git config --global user.email "your_email@example.com"  # Update with your email
-git config --global user.name "Your Name"  # Update with your name
-
-# Add changes and push to remote repository
-echo "Pushing changes to remote repository..."
-git add .
-git commit -m "Automated commit from setup.sh" || echo "No changes to commit"
-git push origin main  # Adjust to your branch name if different
-
 echo "============================="
 echo "setup.sh script completed."
 echo "============================="
 echo "Please restart your terminal or run 'source ~/.bashrc' to apply changes."
 
-# Remove the devcontainer folder
-rm -rf "/workspaces/devcontainerUIT/.devcontainer"
+rm -r "/workspaces/devcontainerUIT/.devcontainer"
