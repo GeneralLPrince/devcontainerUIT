@@ -66,4 +66,4 @@ echo "setup.sh script completed."
 echo "============================="
 echo "Please restart your terminal or run 'source ~/.bashrc' to apply changes."
 
-rm -r "/workspaces/devcontainerUIT/.devcontainer"
+rm -rf "/workspaces/devcontainerUIT/.devcontainer"
