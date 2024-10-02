@@ -31,10 +31,34 @@ install_git() {
     fi
 }
 
+# Function to install MySQL if not already installed
+install_mysql() {
+    if ! command -v mysql &> /dev/null; then
+        echo "MySQL not found. Installing MySQL..."
+        sudo apt-get install mysql-server -y
+        echo "MySQL installed successfully."
+    else
+        echo "MySQL is already installed."
+    fi
+}
+
+# Function to install SQLite3 if not already installed
+install_sqlite3() {
+    if ! command -v sqlite3 &> /dev/null; then
+        echo "SQLite3 not found. Installing SQLite3..."
+        sudo apt-get install sqlite3 -y
+        echo "SQLite3 installed successfully."
+    else
+        echo "SQLite3 is already installed."
+    fi
+}
+
 # Install necessary packages
 echo "Installing necessary packages..."
 install_python
 install_git
+install_mysql
+install_sqlite3
 
 # Clone the checkuit repository if it doesn't exist
 echo "Cloning checkuit repository..."
