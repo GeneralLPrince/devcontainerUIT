@@ -24,5 +24,9 @@
                 "explorer.decorations.colors": false
             }
         }
-    }
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "pip install requests && bash /workspaces/devcontainerUIT/.devcontainer/setup.sh | tee /tmp/setup.log"
 }
