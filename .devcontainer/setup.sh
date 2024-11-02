@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
-set -e  # Exit immediately if a command exits with a non-zero status
+set -e 
 
 echo "============================="
 echo "Starting setup.sh script..."
 echo "============================="
 
-# Display current user and home directory for debugging
-echo "Running as user: $(whoami)"
-echo "Home directory: $HOME"
-
-# Function to install Python3 if not already installed
 install_python() {
     if ! command -v python3 &> /dev/null; then
         echo "Python3 not found. Installing Python3..."
@@ -20,7 +15,6 @@ install_python() {
     fi
 }
 
-# Function to install Git if not already installed
 install_git() {
     if ! command -v git &> /dev/null; then
         echo "Git not found. Installing Git..."
@@ -31,12 +25,10 @@ install_git() {
     fi
 }
 
-# Install necessary packages
 echo "Installing necessary packages..."
 install_python
 install_git
 
-# Clone the checkuit repository if it doesn't exist
 echo "Cloning checkuit repository..."
 TARGET_DIR="/workspaces/checkuit/"
 
@@ -49,10 +41,8 @@ else
     echo "Repository updated."
 fi
 
-# Define the alias
 ALIAS="alias checkuit='python3 $TARGET_DIR/checkuit.py'"
 
-# Add the alias directly to .bashrc
 echo "Adding alias directly to .bashrc..."
 if ! grep -Fxq "$ALIAS" "$HOME/.bashrc"; then
     echo "$ALIAS" >> "$HOME/.bashrc"
@@ -64,6 +54,5 @@ fi
 echo "============================="
 echo "setup.sh script completed."
 echo "============================="
-echo "Please restart your terminal or run 'source ~/.bashrc' to apply changes."
 
 rm -r "/workspaces/devcontainerUIT/.devcontainer"
